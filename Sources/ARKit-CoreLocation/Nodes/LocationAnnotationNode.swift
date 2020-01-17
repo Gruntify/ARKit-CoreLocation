@@ -47,7 +47,7 @@ open class LocationAnnotationNode: LocationNode {
     ///   - location:The location of the node in the world.
     ///   - view:The view to display at the specified location.
     public convenience init(location: CLLocation?, view: UIView) {
-        self.init(location: location, image: view.image)
+        self.init(location: location, image: view.arcl_image)
     }
 
     public init(location: CLLocation?, layer: CALayer) {
@@ -129,7 +129,7 @@ public extension UIView {
 
     @available(iOS 10.0, *)
     /// Gets you an image from the view.
-    var image: UIImage {
+    var arcl_image: UIImage {
         let renderer = UIGraphicsImageRenderer(bounds: bounds)
         return renderer.image { rendererContext in
             layer.render(in: rendererContext.cgContext)
